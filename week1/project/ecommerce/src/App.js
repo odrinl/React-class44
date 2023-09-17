@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import './App.css';
-import Product from './Product'; 
 import Catalog from './Catalog';
 import productsData from './fake-data/all-products';
 
@@ -11,7 +9,8 @@ function App() {
         <h1>Products</h1>
       </header>
       <main>
-        <Catalog products={productsData} /> {/* Pass productsData to Catalog */}
+        {/* Pass the productData to the Catalog component */}
+        <Catalog products={productsData} /> 
       </main>
     </div>
   );

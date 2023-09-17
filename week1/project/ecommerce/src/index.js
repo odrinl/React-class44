@@ -4,20 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Define the <head> section content
-const headContent = (
-  <head>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HYF Ecommerce App week 1</title>
-  </head>
-);
-
 // Create the root instance
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {headContent}
     <App />
   </React.StrictMode>
 );
