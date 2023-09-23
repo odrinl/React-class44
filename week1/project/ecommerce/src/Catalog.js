@@ -4,20 +4,18 @@ import ProductsList from './ProductsList';
 
 const Catalog = (props) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showAllProducts, setShowAllProducts] = useState(true);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    setShowAllProducts(false);
   };
 
-  const filteredProducts = showAllProducts
-    ? props.products
-    : props.products.filter((product) => {
-        const cleanedCategory = selectedCategory ? selectedCategory.replace('FAKE: ', '') : '';
+  const filteredProducts = selectedCategory
+    ? props.products.filter((product) => {
+        const cleanedCategory = selectedCategory.replace('FAKE: ', '');
         return product.category === cleanedCategory;
-      });
-
+      })
+    : props.products;
+    
   return (
     <div className='App'>
       <div className='categories'>
