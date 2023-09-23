@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import categoriesData from './fake-data/all-categories.js';
 import ProductsList from './ProductsList';
 
-const Catalog = (props) => {
+const Catalog = ({ products }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryClick = (category) => {
@@ -10,11 +10,11 @@ const Catalog = (props) => {
   };
 
   const filteredProducts = selectedCategory
-    ? props.products.filter((product) => {
+    ? products.filter((product) => {
         const cleanedCategory = selectedCategory.replace('FAKE: ', '');
         return product.category === cleanedCategory;
       })
-    : props.products;
+    : products;
     
   return (
     <div className='App'>
