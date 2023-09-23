@@ -9,7 +9,6 @@ function App() {
         <h1>Products</h1>
       </header>
       <main>
-        {/* Pass the productData to the Catalog component */}
         <Catalog products={productsData} /> 
       </main>
     </div>

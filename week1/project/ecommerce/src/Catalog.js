@@ -11,7 +11,6 @@ const Catalog = (props) => {
     setShowAllProducts(false);
   };
 
-  // Filter the props.products array when a category is selected
   const filteredProducts = showAllProducts
     ? props.products
     : props.products.filter((product) => {
