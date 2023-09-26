@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react';
-function ProductsList() {
+function ProductsList({ selectedCategory }) {
   const [productsList, setProductsList] = useState([]);
-
-  let apiUrl = 'https://fakestoreapi.com/products';
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        setProductsList(data);
+        if (!selectedCategory || selectedCategory === 'all products') {
+          const response = await fetch(`https://fakestoreapi.com/products`);
+          const data = await response.json();
+          setProductsList(data);
+        } else {
+          const response = await fetch(
+            `https://fakestoreapi.com/products/category/${selectedCategory}`
+          );
+          const data = await response.json();
+          setProductsList(data);
+        }
       } catch (error) {
         console.error('Error fetching categories:', error);
       }
     })();
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div className='container text-center'>
