@@ -32,7 +32,7 @@ function Categories({ selectedCategory, onCategoryClick }) {
       <nav className='navbar navbar-expand-lg bg-body-tertiary'>
         <div className='container-fluid'>
           <a className='navbar-brand' href='#'>
-            My shop
+            <h1>My shop</h1>
           </a>
           <button
             className='navbar-toggler'
@@ -55,7 +55,7 @@ function Categories({ selectedCategory, onCategoryClick }) {
                   <button
                     type='button'
                     onClick={() => handleCategoryClick(category)}
-                    className={`nav-link nav-item btn btn-light ${
+                    className={`nav-link p-2 nav-item btn btn-light ${
                       selectedCategory === category ? 'active' : ''
                     }`}
                     href='#'
