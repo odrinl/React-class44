@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 function Item({ item, setItem }) {
   const { id } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       try {
@@ -13,12 +14,15 @@ function Item({ item, setItem }) {
         setItem(data);
       } catch (error) {
         console.error('Error fetching categories:', error);
+        setItem(null);
       }
     })();
-  }, [id]);
+  }, [id, setItem]);
 
   if (!item) {
-    return <div className='container'>Loading product...</div>;
+    return (
+      <div className='container display-5 m-5 p-5'>Loading product...</div>
+    );
   }
 
   return (

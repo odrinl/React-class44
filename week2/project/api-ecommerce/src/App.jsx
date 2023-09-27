@@ -1,9 +1,10 @@
 import React, { useState, lazy, Suspense } from 'react';
+import ErrorMassage from './components/ErrorMessage';
 import Categories from './components/Categories';
 const ProductsList = lazy(() => import('./components/ProductsList'));
 const Item = lazy(() => import('./components/Item'));
 import Footer from './components/Footer';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -49,6 +50,8 @@ function App() {
                 />
               }
             />
+            {/* Define a catch-all route for all 404 errors */}
+            <Route path='*' element={<ErrorMassage />} />
           </Routes>
         </Suspense>
         <Footer />
