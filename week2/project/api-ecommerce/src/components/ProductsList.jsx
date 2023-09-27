@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ProductsList({ selectedCategory, onItemClick }) {
   const [productsList, setProductsList] = useState([]);

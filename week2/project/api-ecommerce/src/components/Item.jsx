@@ -23,18 +23,23 @@ function Item({ item, setItem }) {
   return (
     <div className='container justify-content-center'>
       <div className='card m-3'>
-        <div className='row g-0'>
-          <div className='col-md-4'>
-            <img src={item.image} className='card-img-top' alt={item.title} />
+        <div className='row g-0 p-3'>
+          <div className='col-md-4 d-flex align-items-center'>
+            <img
+              src={item.image}
+              className='card-img-top'
+              alt={item.title}
+              style={{ maxWidth: '540px' }}
+            />
           </div>
-          <div className='col-md-8'>
-            <div className='card-body'>
+          <div className='col-md-8 d-flex align-items-center'>
+            <div className='card-body pl-5'>
               <h5 className='card-title'>{item.title}</h5>
               <p className='card-text'>{item.description}</p>
               <p className='card-text'>{`$${item.price}`}</p>
-              <p className='card-footer'>
+              <div className='card-footer'>
                 <small className='text-body-secondary'>{`Raiting: ${item.rating.rate} from ${item.rating.count}`}</small>
-              </p>
+              </div>
             </div>
           </div>
         </div>

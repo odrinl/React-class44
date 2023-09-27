@@ -12,28 +12,42 @@ function App() {
   const onItemClick = (selectedItem) => {
     setItem(selectedItem);
   };
+  const onCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <BrowserRouter>
       <div>
-        <Categories
-          selectedCategory={selectedCategory}
-          onCategoryClick={setSelectedCategory}
-        />
         <Suspense fallback={<div className='container'>Loading...</div>}>
+          <Categories
+            selectedCategory={selectedCategory}
+            onCategoryClick={setSelectedCategory}
+          />
           <Routes>
             <Route
               path='/'
+              element={
+                <div>
+                  <ProductsList
+                    selectedCategory={selectedCategory}
+                    onItemClick={setItem}
+                  />
+                </div>
+              }
+            />
+            <Route
+              path='/products/:id'
+              element={<Item item={item} setItem={setItem} />}
+            />
+            <Route
+              path='/category/:selectedCategory'
               element={
                 <ProductsList
                   selectedCategory={selectedCategory}
                   onItemClick={setItem}
                 />
               }
-            />
-            <Route
-              path='/products/:id'
-              element={<Item item={item} setItem={setItem} />}
             />
           </Routes>
         </Suspense>

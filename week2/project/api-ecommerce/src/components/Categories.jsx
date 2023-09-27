@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 function Categories({ selectedCategory, onCategoryClick }) {
   const [categories, setCategories] = useState([]);
@@ -24,17 +24,13 @@ function Categories({ selectedCategory, onCategoryClick }) {
     })();
   }, []);
 
-  const handleCategoryClick = (category) => {
-    onCategoryClick(category);
-  };
-
   return (
     <>
       <nav className='navbar navbar-expand-lg bg-body-tertiary'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='#'>
+          <NavLink className='navbar-brand' to='/'>
             <h1>My shop</h1>
-          </a>
+          </NavLink>
           <button
             className='navbar-toggler'
             type='button'
@@ -52,13 +48,12 @@ function Categories({ selectedCategory, onCategoryClick }) {
                 <li className='nav-item mx-2 m-2' key={index}>
                   <button
                     type='button'
-                    onClick={() => handleCategoryClick(category)}
+                    onClick={() => onCategoryClick(category)}
                     className={`nav-link p-2 nav-item btn btn-light ${
                       selectedCategory === category ? 'active' : ''
                     }`}
-                    href='#'
                   >
-                    {category}
+                    <Link to={`category/${category}`}>{category}</Link>
                   </button>
                 </li>
               ))}
