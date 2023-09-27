@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function Item({ item, setItem }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
       try {
@@ -22,6 +23,12 @@ function Item({ item, setItem }) {
 
   return (
     <div className='container justify-content-center'>
+      <button
+        className='btn btn-outline-secondary mt-3'
+        onClick={() => navigate(-1)}
+      >
+        &lt;&lt; &nbsp;Go Back
+      </button>
       <div className='card m-3'>
         <div className='row g-0 p-3'>
           <div className='col-md-4 d-flex align-items-center'>
