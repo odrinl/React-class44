@@ -1,0 +1,35 @@
+ul,
+li {
+  all: initial;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item,
+a {
+  color: rgb(74, 143, 212);
+  text-decoration: none;
+}
+.card-body {
+  padding-left: 1.5rem;
+}
+
+.navbar-brand h1 {
+  margin: 0 2rem;
+}
+
+.bi::before {
+  font-size: 2rem;
+}
+.info {
+  align-items: stretch !important;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.card-title {
+  color: rgb(74, 143, 212);
+}
