@@ -1,13 +1,19 @@
 import React from 'react';
 import useFetch from '../hooks/useFetch';
 import { useParams } from 'react-router-dom';
-import ProductCard from './ProductCard'; // Import the ProductCard component
+import ProductCard from './ProductCard';
 
-function ProductsList() {
+function ProductsList({ url }) {
   const { category } = useParams();
-  const { data, isLoading, error } = useFetch(
-    `https://fakestoreapi.com/products/category/${category}`
-  );
+
+  let apiUrl;
+  if (url === 'all') {
+    apiUrl = 'https://fakestoreapi.com/products';
+  } else {
+    apiUrl = `https://fakestoreapi.com/products/category/${category}`;
+  }
+
+  const { data, isLoading, error } = useFetch(apiUrl);
 
   return (
     <div>
