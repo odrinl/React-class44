@@ -19,17 +19,17 @@ export const ContextProvider = ({ children }) => {
   };
 
   // Load liked products from localStorage on initial render
-  useEffect(() => {
-    const storedLikedProducts = localStorage.getItem('likedProducts');
-    if (storedLikedProducts) {
-      setLikedProducts(JSON.parse(storedLikedProducts));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedLikedProducts = localStorage.getItem('likedProducts');
+  //   if (storedLikedProducts) {
+  //     setLikedProducts(JSON.parse(storedLikedProducts));
+  //   }
+  // }, []);
 
   // Update localStorage when likedProducts state changes
-  useEffect(() => {
-    localStorage.setItem('likedProducts', JSON.stringify(likedProducts));
-  }, [likedProducts]);
+  // useEffect(() => {
+  //   localStorage.setItem('likedProducts', JSON.stringify(likedProducts));
+  // }, [likedProducts]);
 
   return (
     <Context.Provider
